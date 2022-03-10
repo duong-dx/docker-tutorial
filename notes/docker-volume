@@ -1,0 +1,56 @@
+-----------------------------------------------------------------
+|                            NOTE Khái niệm                     |
+-----------------------------------------------------------------
+1. Docker volume
+- là một nơi lưu trữ data năm ngoài container, mục ddihcs không làm mất data khi xóa container
+
+- sử dụng volume khi nào:
+    + khi muốn chia sẻ dữ liệu giữa nhiều container đang chạy
+    + Lưu dữ liệu tới một server remote hoặc cloud
+    + Khi cần backup, restore hoặc migrate dữ liệu từ docker host này sang dockerhost khác
+- command volume
+# docker volume create : Tạo mạng mới
+# docker volume inspect : xem chi tiết mạng
+# docker volume ls: xem các mạng đang có
+# docker volume rm : xóa mạng
+# docker volume prune : xóa các volume rỗng
+
+-----------------------------------------------------------------
+|                         TEST docker volume                    |
+-----------------------------------------------------------------
+1. test với nginx
+
++ pull image nginx:alpine
+# docker pull nginx:alpine
+
++ tạo mới volume
+# docker volume create project1_code
+
++ check info của volume
+#docker inspect project1_code
+
++ tạo mới 1 file index.html trong thư mục của volume project1_code
+# touch /var/lib/docker/volumes/project1_code/_data
+
++ tạo mới 1 container với name bằng test_project ports 8891 (trên máy host) ánh xạ đến cổng 80 trong container
++ dùng volumn project1_code ánh xạ đến thư mục /var/www/html (trong container)
+# docker run --name test_project -p 8891:80 -v project1_code:/var/www/html -d nginx:alpine
+
+2. test mysql
+# docker pull mysql:5.7
+
++ tạo mới volume
+# docker volume create project1_data
+
++ tạo mới 1 container tên là test_project_mysql, 33061 (trên máy host) ánh xạ đến cổng 3306 trong container
++ -e : environment: MYSQL_ROOT_PASSWORD - set password cho mysql
++ dùng volumn project1_data ánh xạ đến thư mục /var/lib/mysql (trong container)
++ clone từ image mysql:5.7
+# docker run --name test_project_mysql -v project1_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 33061:3306 -d mysql:5.7
+
++ exec vào container
+docker exec -it project1_data sh
+
++ login mysql
+# mysql -u [user_name] -p [database_name]
+# mysql -u root -p database_2

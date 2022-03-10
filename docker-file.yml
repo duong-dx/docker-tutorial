@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: ["nginx", "-g", "daemon off;"]
+    volumes:
+      - ./code:/var/www/html
+    ports:
+      - "8899:80"

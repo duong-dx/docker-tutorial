@@ -1,0 +1,43 @@
+-----------------------------------------------------------------
+|                Một số khái niệm                               |
+-----------------------------------------------------------------
+
+
+1. Khaí niệm: docker-compose sinh ra để start nhiều container(vì trong 1 dự án có thể build rất nhiều container)
+
+2. cú pháp
+- tạo file docker-compose.yml
+- viết theo cú pháp của ngôn ngữ yaml
+
+3. Các lệnh trong docker compose
+- version: chỉ ra phiên bản docker-compose sử dụng
+- services: thiết lập các services(containers) muốn cài đặt và chạy
+- image: chỉ ra các image sử dụng trong lúc tạo container
+- build: dùng để tạo container
+- ports: thiết lập ports chạy tại máy host và trong container
+- restart: tự động khởi chạy container kho bị tắt
+- environment: thiết lập các biến môi trường
+- depends_on: chỉ ra sự phụ thuộc(nghĩa là các serive này muốn chạy được phải cài trước service kia mới chạy được)
+- volume: dùng để  mount 2 thư mục trên máy host và trong container
+- link: cho pheps đăng ký một cái trên bí danh để các server khác có thể gọi
+- context: xác định thư mục gốc, dự án thư mucj này chúng ta sẽ khai báo tiếp đường dẫn dockerfile
+
+-----------------------------------------------------------------
+|                            NOTE                               |
+-----------------------------------------------------------------
+- Build image:
+docker-compose build
+docker-compose -f [file-name] build
+
+- Chạy
+docker-compose up [file-name]
+docker-compose -f [file-name] up
+
+- stop
+docker-compose -f [file-name] stop
+
+- stop xóa container
+docker-compose -f [file-name] down
+
+- start lại containter
+docker-compose start

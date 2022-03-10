@@ -1,0 +1,18 @@
+- FROM: lấy 1 image từ docker hub
+- LABEL: Thông tin người tạo, bảo trì dockerfile
+- ENV: thiết lập các biến môi trường
+- RUN: Chỉ chạy khi build image, được sử dụng để cài đặt các package vào container
+- COPY: sao chép các file và thư mục vào container
+- ADD: sao chép các file và thư mục vào container
+- CMD: trong 1 dockerfile chỉ có 1 CMD, chỉ chạy khi thự hiện docker run dể tạo 1 container
+- WORKDIRL: Thiết lập thư mục làm việc vho các chỉ thị như : RUN, CMD, ENTRYPOINT, COPY..
+- ARG: Định ngĩa giá trị biến được dùng trong lúc build image
+- ENTRYPOINT: cung cấp leệnh và đối số cho 1 container thực thi
+- EXPOSE: Khia báo port lắng nghe của image
+- VOLUME: Tạo 1 điểm gắn thư mục để truy cập dữ liệu data
+
+-----------------
+- build image: docker build -t [name_image] .
+ ví dụ docker build -t project1 .
+
+- up image: docker run -d -p 8899:80 project1

@@ -1,0 +1,93 @@
+﻿-----------------------------------------------------------------
+|                            install docker                     |
+-----------------------------------------------------------------
+Cài docker và docker-compose trên EC2/AWS
+sudo apt update -y
+sudo apt-get install -y docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+
+- Cài docker-compose
+sudo curl -L "https://github.com/docker/compose/rel... -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+-----------------------------------------------------------------
+|                            NOTE docker                        |
+-----------------------------------------------------------------
+
+Các lệnh với image
+- Tìm image để cài đặt
+docker search centos
+- List các image đang có
+docker image ls
+- Xóa image
+sudo docker rmi [Image ID]
+Chú ý: Các image mà có container đang chạy thì sẽ không xóa được mà phải xóa container liên quan tới nó trước
+- Pull image về
+docker pull centos:7
+
+Làm việc với container
+
+- Chạy 1 container từ image
+ docker run -it -d -p 8899:80 ubuntu /bin/bash
+
+- Vào container để chạy lệnh
+docker exec -it [Container ID] sh
+docker exec -it [Container ID] /bin/bash 
+
+- Cài đặt apache
+yum -y install httpd
+systemctl start httpd 
+systemctl enable httpd
+ (trong ubuntuo dungf systemctl hoặc service tùy phiên bản)
+echo "Hello Tin Hoc That La Don Gian" } /var/www/html/index.html
+
+- Thoát ra khỏi container
+exit
+
+- Tạo image để triển khai cho máy khác
+docker commit -m "Comment" -a "Tác giả"  [Container ID] [Image Name]
+docker commit -m "Linux Project 01" -a "Dinh Xuan Duong" d841a60b75de xuanduong/project01:v1
+
+- Đăng nhập vào docker/hub
+docker login
+
+- Đưa image lên docker hup để mọi người cùng sử dụng
+docker push [Tên image]
+docker push tinhocthatladongian/project01:v1
+ 
+- Check các container đang chạy
+sudo docker ps -a
+
+- Xem trạng thái container
+docker container ls -a
+
+- Xóa containner
+sudo docker rm [Container ID]
+
+- Stop container
+docker container stop [Container ID]
+
+- Restart container
+docker container restart [Container ID]
+
+- Pause container
+docker container pause  [Container ID]
+
+- Truy cập vào các container đang chạy
+docker container attach [Container ID]
+
+
+- Lệnh stop toàn bộ container
+docker stop $(docker ps -a -q)
+
+- Lệnh xóa toàn bộ container
+docker rm $(docker ps -a -q)
+
+- Lệnh xóa toàn bộ image
+docker rmi -f $(docker images -a -q)
+
+- pull project
+docker pull projectname:tag
+
+- 

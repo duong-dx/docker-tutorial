@@ -1,0 +1,48 @@
+-----------------------------------------------------------------
+|                NOTE Khái niệm - Docker network                |
+-----------------------------------------------------------------
+1. Khái niệm
+- docker network mục đích để kết nối các container trong cùng mạng hoặc khác mạng với nhau
+
+2. một số câu lệnh
+
+các câu lệnh để tạo network
+-Tạo mạng mới
+# docker network create
+
+- Xem chi tiết network
+# docker network inspect [network name]
+
+- Xem danh sách network
+# docker network ls
+
+- Xóa network
+# docker network rm  [network name, id]
+
+- Xóa đồng loạt các network không sử dụng
+# docker network prune
+
+- Taọ kết nối network
+# docker network connect
+
+- Ngắt kết nối network
+# docker network disconnect
+
+-----------------------------------------------------------------
+|                     Vi du - Docker network                |
+-----------------------------------------------------------------
+1. Tạo mới 1 network
+# docker network create --subnet 192.168.1.0/24  network1
+
+2. tạo 2 container kết nối với network vừa tạo
+docker run -itd --name=[container name] --network [network name] [image name]
+
+# docker run -itd --name=container1 --network network1 buysybox
+# docker run -itd --name=container2 --network network1 buysybox
+
+3. xem chi tiết network1 xem 2 container vừa tạo đã join được network chưa
+# docker network inspect network1
+
+3. exec container1
+- ping đến ip của container 2
+- nếu thông thì ok

@@ -1,0 +1,29 @@
+# run command for load .env file
+# docker-compose --env-file .env config
+
+version: '3'
+services:
+  db:
+    build:
+      context: ./docker/mysql
+      dockerfile: Dockerfile
+
+    # restart container when container stop
+    restart: always
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+    ports:
+      - "${DB_PUBLIC_PORT}:3306"
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./log/mysql:/var/log/mysql
+      - mysql_data:/var/lib/mysql
+
+# create volume
+volumes:
+  mysql_data: {}

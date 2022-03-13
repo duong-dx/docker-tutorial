@@ -1,0 +1,8 @@
+# run
+- mkdir ssl
+
+- sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/localhost.key -out ssl/localhost.crt -config localhost.conf -passin pass:password
+
+- sudo openssl req -out ssl/localhost.csr -newkey rsa:4096 -nodes -config localhost.conf
+
+- sudo openssl pkcs12 -export -out ssl/localhost.pfx -inkey ssl/localhost.key -in ssl/localhost.crt

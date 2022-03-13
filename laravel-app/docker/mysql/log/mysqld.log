@@ -4591,3 +4591,112 @@ Time                 Id Command    Argument
 mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
 Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
 Time                 Id Command    Argument
+2022-03-13T18:25:42.680315Z	    2 Connect	${MYSQL_USER}@app.laravel-app_laravel-app-network on ${MYSQL_DATABASE} using TCP/IP
+2022-03-13T18:25:42.680424Z	    2 Connect	Access denied for user '${MYSQL_USER}'@'app.laravel-app_laravel-app-network' (using password: YES)
+2022-03-13T18:27:36.985918Z	    3 Connect	user@laravel-app_adminer_1.laravel-app_laravel-app-network on  using TCP/IP
+2022-03-13T18:27:36.988299Z	    3 Query	SET NAMES utf8mb4
+2022-03-13T18:27:36.988405Z	    3 Query	SET sql_quote_show_create = 1, autocommit = 1
+2022-03-13T18:27:36.990149Z	    3 Query	SELECT USER()
+2022-03-13T18:27:36.990771Z	    3 Query	SELECT /*+ MAX_EXECUTION_TIME(2000) */  SCHEMA_NAME FROM information_schema.SCHEMATA ORDER BY SCHEMA_NAME
+2022-03-13T18:27:36.992645Z	    3 Query	SHOW COLLATION
+2022-03-13T18:27:36.993572Z	    3 Query	SHOW CREATE DATABASE `information_schema`
+2022-03-13T18:27:36.993593Z	    3 Init DB	Access denied for user 'user'@'laravel-app_adminer_1.laravel-app_laravel-app-network' to database 'information_schema'
+2022-03-13T18:27:36.993814Z	    3 Query	SHOW CREATE DATABASE `sample_db`
+2022-03-13T18:27:36.994266Z	    3 Quit	
+2022-03-13T18:29:23.113920Z	    4 Connect	user@laravel-app_adminer_1.laravel-app_laravel-app-network on  using TCP/IP
+2022-03-13T18:29:23.114009Z	    4 Query	SET NAMES utf8mb4
+2022-03-13T18:29:23.114068Z	    4 Query	SET sql_quote_show_create = 1, autocommit = 1
+2022-03-13T18:29:23.114143Z	    4 Query	USE `information_schema`
+2022-03-13T18:29:23.114528Z	    4 Query	SELECT TABLE_NAME, TABLE_TYPE FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() ORDER BY TABLE_NAME
+2022-03-13T18:29:23.117663Z	    4 Query	SELECT @@default_storage_engine
+2022-03-13T18:29:23.117771Z	    4 Query	SHOW COLLATION
+2022-03-13T18:29:23.118483Z	    4 Query	SHOW CREATE DATABASE `information_schema`
+2022-03-13T18:29:23.118509Z	    4 Init DB	Access denied for user 'user'@'laravel-app_adminer_1.laravel-app_laravel-app-network' to database 'information_schema'
+2022-03-13T18:29:23.118642Z	    4 Query	SELECT ROUTINE_NAME AS SPECIFIC_NAME, ROUTINE_NAME, ROUTINE_TYPE, DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = 'information_schema'
+2022-03-13T18:29:23.122091Z	    4 Query	SHOW EVENTS
+2022-03-13T18:29:23.122427Z	    4 Query	USE `information_schema`
+2022-03-13T18:29:23.122520Z	    4 Query	SELECT TABLE_NAME AS Name, ENGINE AS Engine, TABLE_COMMENT AS Comment FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() ORDER BY Name
+2022-03-13T18:29:23.124614Z	    4 Quit	
+2022-03-13T18:29:23.263685Z	    5 Connect	user@laravel-app_adminer_1.laravel-app_laravel-app-network on  using TCP/IP
+2022-03-13T18:29:23.263797Z	    5 Query	SET NAMES utf8mb4
+2022-03-13T18:29:23.263857Z	    5 Query	SET sql_quote_show_create = 1, autocommit = 1
+2022-03-13T18:29:23.263934Z	    5 Query	USE `information_schema`
+2022-03-13T18:29:23.263995Z	    5 Query	SHOW TABLE STATUS
+2022-03-13T18:29:23.266952Z	    5 Quit	
+2022-03-13T18:30:02.100841Z	    6 Connect	user@laravel-app_adminer_1.laravel-app_laravel-app-network on  using TCP/IP
+2022-03-13T18:30:02.100982Z	    6 Query	SET NAMES utf8mb4
+2022-03-13T18:30:02.101063Z	    6 Query	SET sql_quote_show_create = 1, autocommit = 1
+2022-03-13T18:30:02.101171Z	    6 Query	USE `information_schema`
+2022-03-13T18:30:02.101254Z	    6 Query	SHOW TABLE STATUS LIKE 'TABLES'
+2022-03-13T18:30:02.101424Z	    6 Query	SHOW INDEX FROM `TABLES`
+2022-03-13T18:30:02.101522Z	    6 Query	SHOW FULL COLUMNS FROM `TABLES`
+2022-03-13T18:30:02.102006Z	    6 Query	SHOW CREATE TABLE `TABLES`
+2022-03-13T18:30:02.102961Z	    6 Query	SELECT *
+FROM `TABLES`
+LIMIT 50
+2022-03-13T18:30:02.115936Z	    6 Query	SHOW WARNINGS
+2022-03-13T18:30:02.148201Z	    6 Query	SELECT /*+ MAX_EXECUTION_TIME(2000) */  COUNT(*) FROM `TABLES`
+2022-03-13T18:30:02.149206Z	    6 Query	USE `information_schema`
+2022-03-13T18:30:02.149305Z	    6 Query	SELECT TABLE_NAME AS Name, ENGINE AS Engine, TABLE_COMMENT AS Comment FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() ORDER BY Name
+2022-03-13T18:30:02.151852Z	    6 Quit	
+2022-03-13T18:30:15.076707Z	    7 Connect	user@laravel-app_adminer_1.laravel-app_laravel-app-network on  using TCP/IP
+2022-03-13T18:30:15.076876Z	    7 Query	SET NAMES utf8mb4
+2022-03-13T18:30:15.076934Z	    7 Query	SET sql_quote_show_create = 1, autocommit = 1
+2022-03-13T18:30:15.077050Z	    7 Query	USE `information_schema`
+2022-03-13T18:30:15.077171Z	    7 Query	SHOW TABLE STATUS LIKE 'TABLES'
+2022-03-13T18:30:15.077336Z	    7 Query	SHOW INDEX FROM `TABLES`
+2022-03-13T18:30:15.077439Z	    7 Query	SHOW FULL COLUMNS FROM `TABLES`
+2022-03-13T18:30:15.077773Z	    7 Query	SHOW CREATE TABLE `TABLES`
+2022-03-13T18:30:15.078751Z	    7 Query	SELECT *
+FROM `TABLES`
+WHERE `TABLE_SCHEMA` = 'sample_db'
+LIMIT 50
+2022-03-13T18:30:15.078957Z	    7 Query	SHOW WARNINGS
+2022-03-13T18:30:15.080655Z	    7 Query	USE `information_schema`
+2022-03-13T18:30:15.080739Z	    7 Query	SELECT TABLE_NAME AS Name, ENGINE AS Engine, TABLE_COMMENT AS Comment FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() ORDER BY Name
+2022-03-13T18:30:15.084302Z	    7 Quit	
+mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-03-13T19:00:00.609132Z	    2 Connect	user@app.laravel-app_laravel-app-network on sample_db using TCP/IP
+2022-03-13T19:00:00.611524Z	    2 Query	use `sample_db`
+2022-03-13T19:00:00.612697Z	    2 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.612930Z	    2 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.612964Z	    2 Close stmt	
+2022-03-13T19:00:00.613375Z	    2 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2022-03-13T19:00:00.613384Z	    2 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2022-03-13T19:00:00.613412Z	    2 Close stmt	
+2022-03-13T19:00:00.614678Z	    2 Prepare	select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'
+2022-03-13T19:00:00.614704Z	    2 Execute	select * from information_schema.tables where table_schema = 'sample_db' and table_name = 'migrations' and table_type = 'BASE TABLE'
+2022-03-13T19:00:00.614860Z	    2 Close stmt	
+2022-03-13T19:00:00.616114Z	    2 Prepare	create table `migrations` (`id` int unsigned not null auto_increment primary key, `migration` varchar(255) not null, `batch` int not null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.616138Z	    2 Execute	create table `migrations` (`id` int unsigned not null auto_increment primary key, `migration` varchar(255) not null, `batch` int not null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.624154Z	    2 Close stmt	
+2022-03-13T19:00:00.624397Z	    2 Prepare	select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'
+2022-03-13T19:00:00.624448Z	    2 Execute	select * from information_schema.tables where table_schema = 'sample_db' and table_name = 'migrations' and table_type = 'BASE TABLE'
+2022-03-13T19:00:00.627257Z	    2 Close stmt	
+2022-03-13T19:00:00.629150Z	    2 Prepare	select `migration` from `migrations` order by `batch` asc, `migration` asc
+2022-03-13T19:00:00.629182Z	    2 Execute	select `migration` from `migrations` order by `batch` asc, `migration` asc
+2022-03-13T19:00:00.629264Z	    2 Close stmt	
+2022-03-13T19:00:00.629690Z	    2 Prepare	select `migration` from `migrations` order by `batch` asc, `migration` asc
+2022-03-13T19:00:00.629718Z	    2 Execute	select `migration` from `migrations` order by `batch` asc, `migration` asc
+2022-03-13T19:00:00.629773Z	    2 Close stmt	
+2022-03-13T19:00:00.630584Z	    2 Prepare	select max(`batch`) as aggregate from `migrations`
+2022-03-13T19:00:00.630627Z	    2 Execute	select max(`batch`) as aggregate from `migrations`
+2022-03-13T19:00:00.630686Z	    2 Close stmt	
+2022-03-13T19:00:00.631630Z	    2 Prepare	create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.631648Z	    2 Execute	create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'
+2022-03-13T19:00:00.631725Z	    2 Close stmt	
+2022-03-13T19:00:00.643161Z	    2 Quit	

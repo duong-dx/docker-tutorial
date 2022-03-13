@@ -6,7 +6,7 @@ services:
   app:
     build:
       context: docker/php
-      dockerfile: docker/php/Dockerfile
+      dockerfile: Dockerfile
     image: php:7.4-fpm
     restart: unless-stopped
     container_name: app
@@ -16,29 +16,34 @@ services:
     working_dir: /var/www
     volumes:
         - ./:/var/www
-        - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        - ./docker/php/php.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
         - laravel-app-network
 
 # Web service Nginx
   nginx:
     image: nginx:alpine
-    container_name: nginx
+    #container_name: server_nginx
     restart: unless-stopped
     ports:
-      - "8099:80"
-      - "443:443"
+      - "${NGINX_PORT}:80"
+#      - "${NGINX_SSL_PORT}:443"
     volumes:
       - ./:/var/www
-      - ./docker/nginx/nginx:/etc/nginx
+      - ./docker/nginx/default/:/etc/nginx/conf.d/
+#      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+#      - ./docker/nginx/nginxconfig.io/:/etc/nginx/nginxconfig.io/
+#      - ./docker/nginx/sites-available/:/etc/nginx/sites-available/
+#      - ./docker/nginx/ssl/:/etc/nginx/ssl/
+    links:
+        - app
     networks:
       - laravel-app-network
 # Mysql
   db:
     build:
       context: docker/mysql
-      dockerfile: docker/mysql/Dockerfile
-
+      dockerfile: Dockerfile
     # restart container when container stop
     restart: unless-stopped
     image: mysql:5.7
@@ -52,7 +57,7 @@ services:
     volumes:
       - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
       - ./docker/mysql/conf.d:/etc/mysql/conf.d
-      - ./log/mysql:/var/log/mysql
+      - ./docker/mysql/log/:/var/log/mysql
       - mysql_data:/var/lib/mysql
     networks:
         - laravel-app-network
@@ -61,7 +66,7 @@ services:
   adminer:
     build:
       context: docker/adminer
-      dockerfile: docker/adminer/Dockerfile
+      dockerfile: Dockerfile
     image: unless-stopped
     restart: always
     ports:
